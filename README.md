@@ -58,3 +58,7 @@ Astro outputs the website to `dist/`.
 ## Costs
 
 Astro is open source and Cloudflare Pages has a free plan suitable for many static websites. Domain renewal, email hosting, optional third-party services, and any professional/legal compliance work may still cost money. Free-tier limits and service terms can change; check Cloudflare's current plan documentation.
+
+
+### Image update
+The repeated lakeside-pier image has been replaced with a photograph of Villa del Balbianello on Lake Como, available under the Unsplash License: https://unsplash.com/photos/a-view-of-a-courtyard-through-an-archway-K7HkxnJbWok. Images are still loaded from Unsplash, so the visitor needs an internet connection to view them.
