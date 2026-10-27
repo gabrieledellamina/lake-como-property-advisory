@@ -1,6 +1,6 @@
 # Lake Como Property Advisory — Astro website
 
-A multi-page, English-language boutique consultancy website built with Astro. Designed for free static deployment on Cloudflare Pages.
+A multi-page, English-language boutique consultancy website built with Astro. Designed for deployment on Netlify from a GitHub repository.
 
 ## Included pages
 
@@ -18,7 +18,7 @@ A multi-page, English-language boutique consultancy website built with Astro. De
 ## Before going live — important edits
 
 1. **Confirm the full domain.** `astro.config.mjs` currently uses `https://lakecomopropertyadvisory.com`. If your purchased domain has another extension, update the `site` value and the form's `_next` URL.
-2. **Configure the contact form.** Open `src/components/ContactForm.astro` and replace `YOUR_EMAIL@example.com` in the `action` attribute with the real address that should receive enquiries. Replace the `_next` URL if the domain differs. FormSubmit is a third-party form relay; on first use, it may send an activation email to the recipient address. Test the form after activation. It is not a built-in Cloudflare service.
+2. **Configure the contact form.** Open `src/components/ContactForm.astro` and the form action is configured for `gabrieledellamina@gmail.com`. FormSubmit may send an activation email to this address the first time the form is used; open that email and confirm activation, then submit a test enquiry. Replace the `_next` URL if the domain differs. FormSubmit is a third-party form relay; on first use, it may send an activation email to the recipient address. Test the form after activation. It is not a built-in Cloudflare service.
 3. **Add a real privacy notice.** The checkbox is included, but before publishing you should add a privacy page/notice that identifies the data controller, purpose, legal basis, retention period, recipients and user rights. Get appropriate advice for your circumstances and applicable privacy law.
 4. **Review business claims.** Confirm that all descriptions match the services you are entitled and equipped to provide. Statutory design, certifications, formal valuations, tax advice and legal opinions must be handled by appropriately qualified/authorised professionals where required.
 5. **Images.** The initial version uses remote images from Unsplash's image CDN. Before launch, check the current licence/terms for each image, replace any image that does not fit the brand, and consider downloading properly licensed optimised images into `public/images/` for long-term reliability and performance.
@@ -41,18 +41,14 @@ npm run build
 
 Astro outputs the website to `dist/`.
 
-## Publish free on Cloudflare Pages
+## Publish on Netlify
 
 1. Create a public GitHub repository called `lake-como-property-advisory` at https://github.com/new.
 2. Upload the contents of this project folder (not the ZIP file itself). `package.json`, `astro.config.mjs` and `src/` should sit at the repository root.
-3. In https://dash.cloudflare.com/, open **Workers & Pages** and create a Pages project connected to Git.
-4. Choose the GitHub repository and configure:
-   - Framework preset: **Astro**
-   - Build command: `npm run build`
-   - Build output directory: `dist`
-   - Root directory: leave blank
-5. Deploy and test the `*.pages.dev` address.
-6. In the Cloudflare Pages project, open **Custom domains** and add your full purchased domain. Follow the DNS instructions displayed by Cloudflare. Do not change nameservers or delete DNS records blindly, especially if the domain is already used for email.
+3. In https://app.netlify.com/, open the site connected to this repository.
+4. In **Deploy settings**, use build command `npm run build` and publish directory `dist`; leave the base directory blank.
+5. Commit the files to GitHub and wait for Netlify to publish the new deploy. Test the `netlify.app` address first.
+6. Only after the Netlify address works, check the custom domain settings and DNS records. Do not change nameservers or delete DNS records blindly, especially if the domain is already used for email.
 7. Test every page, mobile navigation, links and the contact form before sharing the site publicly.
 
 ## Costs
@@ -62,3 +58,8 @@ Astro is open source and Cloudflare Pages has a free plan suitable for many stat
 
 ### Image update
 The repeated lakeside-pier image has been replaced with a photograph of Villa del Balbianello on Lake Como, available under the Unsplash License: https://unsplash.com/photos/a-view-of-a-courtyard-through-an-archway-K7HkxnJbWok. Images are still loaded from Unsplash, so the visitor needs an internet connection to view them.
+
+### Current update (version 4)
+- Added a restrained homepage anniversary section: “20 Years of Experience — 2005–2025”.
+- Kept the homepage photography unchanged. Replaced the repeated Villa del Balbianello photo on the internal Lifestyle and Journal pages with different existing image assets.
+- Set the contact form recipient to `gabrieledellamina@gmail.com`. The form uses FormSubmit; recipient activation and an end-to-end test are still required before launch.
