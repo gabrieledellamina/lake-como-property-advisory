@@ -1,0 +1,65 @@
+---
+import '../styles/global.css';
+const { title = 'Lake Como Property Advisory', description = 'Independent property and construction advisory on Lake Como, combining Italian lifestyle with Swiss-quality project management.', active = '' } = Astro.props;
+const nav = [
+  { label: 'Services', href: '/services/', key: 'services' },
+  { label: 'Lake Como Lifestyle', href: '/lifestyle/', key: 'lifestyle' },
+  { label: 'Journal', href: '/journal/', key: 'journal' },
+];
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#f6f4ef" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <title>{title}</title>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="brand" href="/" aria-label="Lake Como Property Advisory home">
+          <strong>Lake Como Property Advisory</strong>
+          <span>Property · Projects · Perspective</span>
+        </a>
+        <button class="menu-toggle" aria-label="Open navigation" aria-expanded="false">☰</button>
+        <nav class="nav" aria-label="Main navigation">
+          {nav.map((item) => <a class={active === item.key ? 'active' : ''} href={item.href}>{item.label}</a>)}
+          <a class="nav-cta" href="/#contact">Enquire</a>
+        </nav>
+      </div>
+    </header>
+    <main><slot /></main>
+    <footer class="site-footer">
+      <div class="container">
+        <div class="footer-top">
+          <div>
+            <a class="brand" href="/" style="color:#f6f4ef"><strong>Lake Como Property Advisory</strong><span style="color:#c1c8c0">Italian life. Swiss quality.</span></a>
+            <p style="margin-top:20px">Independent guidance for property owners and international clients investing, building or renovating around Lake Como.</p>
+          </div>
+          <div class="footer-links">
+            <a href="/services/">Services</a><a href="/lifestyle/">The Lake</a><a href="/journal/">Journal</a><a href="/#contact">Contact</a>
+          </div>
+        </div>
+        <div class="footer-bottom"><span>© {new Date().getFullYear()} Lake Como Property Advisory</span><span>Independent advice. Carefully coordinated expertise.</span></div>
+      </div>
+    </footer>
+    <script is:inline>
+      const toggle = document.querySelector('.menu-toggle');
+      const nav = document.querySelector('.nav');
+      toggle?.addEventListener('click', () => {
+        const open = nav.classList.toggle('open');
+        toggle.setAttribute('aria-expanded', String(open));
+        toggle.setAttribute('aria-label', open ? 'Close navigation' : 'Open navigation');
+        toggle.textContent = open ? '×' : '☰';
+      });
+      nav?.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
+        nav.classList.remove('open'); toggle?.setAttribute('aria-expanded', 'false'); if (toggle) toggle.textContent = '☰';
+      }));
+    </script>
+  </body>
+</html>

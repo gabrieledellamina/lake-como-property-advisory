@@ -1,0 +1,17 @@
+---
+const compact = Astro.props.compact ?? false;
+---
+<form class="contact-form" action="https://formsubmit.co/gabrieledellamina@gmail.com" method="POST">
+  <input type="hidden" name="_subject" value="New enquiry — Lake Como Property Advisory" />
+  <input type="hidden" name="_template" value="table" />
+  <input type="hidden" name="_captcha" value="true" />
+  <input type="hidden" name="_next" value="https://lakecomopropertyadvisory.com/thank-you/" />
+  <div class="field"><label for="full-name">Full name *</label><input id="full-name" name="name" autocomplete="name" required placeholder="Your name" /></div>
+  <div class="field"><label for="email">Email address *</label><input id="email" type="email" name="email" autocomplete="email" required placeholder="you@example.com" /></div>
+  <div class="field"><label for="interest">I am interested in *</label><select id="interest" name="property_interest" required><option value="" disabled selected>Select an option</option><option>New build</option><option>Existing property / renovation</option><option>Property acquisition advice</option><option>Other / not yet decided</option></select></div>
+  <div class="field"><label for="budget">Investment budget (EUR) *</label><select id="budget" name="investment_budget_eur" required><option value="" disabled selected>Select a range</option><option>€1 million</option><option>€2 million</option><option>€5 million</option><option>€8 million</option><option>€10 million</option><option>Over €10 million</option></select></div>
+  <div class="field full"><label for="area">Preferred Lake Como area *</label><select id="area" name="preferred_area" required><option value="" disabled selected>Select an area</option><option>Upper Lake (Alto Lago)</option><option>Como branch</option><option>Lecco branch</option><option>Open to advice</option></select></div>
+  <div class="field full"><label for="message">Tell us a little about your plans</label><textarea id="message" name="message" placeholder="Timing, property type, project ideas or questions…"></textarea></div>
+  <div class="field full"><label style="display:flex;gap:10px;align-items:flex-start;letter-spacing:0;text-transform:none;font-size:12px"><input type="checkbox" name="privacy_consent" required style="width:auto;margin-top:5px" /> I agree to be contacted about this enquiry and acknowledge that my information will be used to respond to my request. *</label><p class="form-note">Please add your final privacy notice before publishing this form. Do not include confidential financial or personal information at this stage.</p></div>
+  <div class="field full"><button class="btn" type="submit">Submit enquiry <span aria-hidden="true">↗</span></button></div>
+</form>
