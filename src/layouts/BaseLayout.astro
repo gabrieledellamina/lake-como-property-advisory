@@ -1,6 +1,7 @@
 ---
 import '../styles/global.css';
-const { title = 'Lake Como Property Advisory', description = 'Independent property and construction advisory on Lake Como, combining Italian lifestyle with Swiss-quality project management.', active = '' } = Astro.props;
+const { title = 'Lake Como Property Advisory', description = 'Independent property and construction advisory on Lake Como, combining Italian lifestyle with Swiss-quality project management.', active = '', noindex = false } = Astro.props;
+const canonical = new URL(Astro.url.pathname, Astro.site).href;
 const nav = [
   { label: 'Services', href: '/services/', key: 'services' },
   { label: 'Lake Como Lifestyle', href: '/lifestyle/', key: 'lifestyle' },
@@ -13,10 +14,17 @@ const nav = [
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
+    <meta name="robots" content={noindex ? "noindex, nofollow" : "index, follow, max-image-preview:large"} />
+    <link rel="canonical" href={canonical} />
     <meta name="theme-color" content="#f6f4ef" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:site_name" content="Lake Como Property Advisory" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
     <title>{title}</title>
   </head>
   <body>

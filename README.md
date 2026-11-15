@@ -63,3 +63,19 @@ The repeated lakeside-pier image has been replaced with a photograph of Villa de
 - Added a restrained homepage anniversary section: “20 Years of Experience — 2005–2025”.
 - Kept the homepage photography unchanged. Replaced the repeated Villa del Balbianello photo on the internal Lifestyle and Journal pages with different existing image assets.
 - Set the contact form recipient to `gabrieledellamina@gmail.com`. The form uses FormSubmit; recipient activation and an end-to-end test are still required before launch.
+
+
+## Version 5 — local images and search indexing
+
+- All Unsplash image links used by the pages and homepage hero have been changed to local paths under `public/images/`. The original photo IDs are retained in the filenames.
+- Add the corresponding JPG files to `public/images/` using the exact filenames listed in `public/images/README.txt`. The homepage hero image is `photo-1734173071981-b16ee4f9867f.jpg`.
+- Added `public/robots.txt` allowing search-engine crawlers and pointing to the sitemap.
+- Added `public/sitemap.xml` with the main indexable website pages. The thank-you and 404 pages are intentionally excluded.
+- Added canonical URLs, page-level meta robots, Open Graph URL and Twitter metadata. Utility pages (thank-you and 404) are marked noindex.
+- Added Netlify `_headers` with `X-Robots-Tag: index, follow`.
+
+### Important before launch
+1. Add all image files listed in `public/images/README.txt`; without them the corresponding image areas remain empty.
+2. After deployment, open `https://lakecomopropertyadvisory.com/robots.txt` and `https://lakecomopropertyadvisory.com/sitemap.xml` to verify they load.
+3. In Google Search Console, inspect the homepage and request indexing; submit `https://lakecomopropertyadvisory.com/sitemap.xml`. Google decides when to recrawl and display snippets, so the wording in search results may not change immediately.
+4. The contact form still requires FormSubmit email activation and an end-to-end test. Add a complete privacy notice before collecting enquiries.
