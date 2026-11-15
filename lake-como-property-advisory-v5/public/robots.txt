@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://lakecomopropertyadvisory.com/sitemap.xml
